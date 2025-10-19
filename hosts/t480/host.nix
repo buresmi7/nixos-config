@@ -1,8 +1,19 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Hostname
   networking.hostName = "t480-nixos";
+
+  # Hardware platform
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  
+  # Intel CPU microcode updates
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  
+  # Intel graphics (OpenGL)
+  hardware.graphics = {
+    enable = true;
+  };
 
   # Enable touchpad support
   services.xserver.libinput.enable = true;

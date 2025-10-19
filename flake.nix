@@ -9,15 +9,24 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, disko, ... }@inputs: {
     nixosConfigurations = {
       # VirtualBox test configuration
       vbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          # Disko for disk management
+          disko.nixosModules.disko
+          ./hosts/vbox/disko.nix
+          
           # Modular configuration
           ./modules/boot.nix
           ./modules/networking.nix
@@ -28,7 +37,6 @@
           
           # Host-specific configuration
           ./hosts/vbox/host.nix
-          ./hosts/vbox/hardware-configuration.nix
           
           # Home Manager
           home-manager.nixosModules.home-manager
@@ -45,6 +53,10 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
+          # Disko for disk management
+          disko.nixosModules.disko
+          ./hosts/t480/disko.nix
+          
           # Modular configuration
           ./modules/boot.nix
           ./modules/networking.nix
@@ -55,7 +67,6 @@
           
           # Host-specific configuration
           ./hosts/t480/host.nix
-          ./hosts/t480/hardware-configuration.nix
           
           # Home Manager
           home-manager.nixosModules.home-manager
