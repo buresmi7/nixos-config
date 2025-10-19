@@ -6,7 +6,6 @@
 
   # Enable VirtualBox guest additions
   virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.x11 = true;
 
   # Enable automatic login for the test user
   services.displayManager.autoLogin = {
