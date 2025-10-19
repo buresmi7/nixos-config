@@ -18,9 +18,25 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./modules/common.nix
+          # Modular configuration
+          ./modules/boot.nix
+          ./modules/networking.nix
+          ./modules/locale.nix
+          ./modules/desktop.nix
+          ./modules/sound.nix
+          ./modules/users.nix
+          
+          # Host-specific configuration
           ./hosts/vbox/host.nix
           ./hosts/vbox/hardware-configuration.nix
+          
+          # Home Manager
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.michal = import ./modules/home.nix;
+          }
         ];
       };
 
@@ -29,9 +45,25 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./modules/common.nix
+          # Modular configuration
+          ./modules/boot.nix
+          ./modules/networking.nix
+          ./modules/locale.nix
+          ./modules/desktop.nix
+          ./modules/sound.nix
+          ./modules/users.nix
+          
+          # Host-specific configuration
           ./hosts/t480/host.nix
           ./hosts/t480/hardware-configuration.nix
+          
+          # Home Manager
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.michal = import ./modules/home.nix;
+          }
         ];
       };
     };
