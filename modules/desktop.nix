@@ -15,7 +15,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
         user = "greeter";
       };
     };
@@ -33,6 +33,6 @@
     wl-clipboard  # Clipboard utilities
     grim  # Screenshot tool
     slurp  # Screen selection tool
-    greetd.tuigreet  # Display manager
+    tuigreet  # Display manager
   ];
 }
