@@ -21,7 +21,18 @@
     };
   };
 
-  # System packages for desktop environment
+  # Fonts for better visual appearance
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    font-awesome
+    dejavu_fonts
+    liberation_ttf
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  ];
+
+  # GTK themes and icons
   environment.systemPackages = with pkgs; [
     git
     mc  # Midnight Commander
@@ -34,5 +45,30 @@
     grim  # Screenshot tool
     slurp  # Screen selection tool
     tuigreet  # Display manager
+    
+    # Wallpaper and backgrounds
+    swaybg  # Wallpaper tool for Sway
+    
+    # System utilities
+    brightnessctl  # Brightness control
+    
+    # GTK themes and appearance
+    adwaita-icon-theme
+    gnome-themes-extra
+    papirus-icon-theme
+    
+    # GUI applications
+    firefox
+    networkmanagerapplet
+    pavucontrol  # PulseAudio volume control
   ];
+
+  # Enable dconf for GTK settings
+  programs.dconf.enable = true;
+  
+  # GTK theme settings
+  environment.sessionVariables = {
+    GTK_THEME = "Adwaita:dark";
+    QT_QPA_PLATFORMTHEME = "gtk2";
+  };
 }
