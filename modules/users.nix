@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  # Disable root account
+  users.users.root.hashedPassword = "!";
+
   # Define main user account
   users.users.michal = {
     isNormalUser = true;
