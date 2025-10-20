@@ -29,7 +29,8 @@
     font-awesome
     dejavu_fonts
     liberation_ttf
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   # GTK themes and icons
