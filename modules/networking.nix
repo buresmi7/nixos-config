@@ -7,14 +7,11 @@
   # Firewall
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 ];
+    allowedTCPPorts = [ ];
   };
 
-  # Enable SSH
+  # Disable SSH
   services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = true;  # Allow password auth for initial setup
-    };
+    enable = false;
   };
 }

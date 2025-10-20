@@ -58,6 +58,15 @@ Disko **must run BEFORE installation**. Do NOT install from Live CD first.
 
 ## Usage
 
+**First Login:**
+- Username: `michal`
+- Password: `nixos` (initial password)
+
+**Change password after first login:**
+```bash
+passwd
+```
+
 **Rebuild:**
 ```bash
 sudo nixos-rebuild switch --flake .#vbox  # or .#t480
@@ -70,6 +79,11 @@ sudo nixos-rebuild switch --flake .#vbox --upgrade
 ```
 
 ## Troubleshooting
+
+**Cannot login after installation:**
+- Default username: `michal`
+- Default password: `nixos`
+- Change password immediately after first login using `passwd`
 
 **Error: "waiting for device disk-main-root"**
 - Disko was not run before installation

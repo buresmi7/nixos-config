@@ -6,6 +6,7 @@
     isNormalUser = true;
     description = "Michal";
     extraGroups = [ "networkmanager" "wheel" ];
+    initialPassword = "nixos";
   };
 
   # Enable sudo for wheel group
