@@ -47,6 +47,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.michal = import ./modules/home-manager.nix;
+            home-manager.extraSpecialArgs = { inherit nur; };
           }
         ];
       };
@@ -77,6 +78,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.michal = import ./modules/home-manager.nix;
+            home-manager.extraSpecialArgs = { inherit nur; };
           }
         ];
       };
