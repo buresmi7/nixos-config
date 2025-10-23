@@ -41,7 +41,7 @@
       isDefault = true;
       
       # Firefox extensions from NUR
-      extensions = with nur.repos.rycee.firefox-addons; [
+      extensions.packages = with nur.repos.rycee.firefox-addons; [
         bitwarden
       ];
       
