@@ -2,11 +2,10 @@
   description = "NixOS configuration flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -16,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, disko, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs: {
     nixosConfigurations = {
       # VirtualBox test configuration
       vbox = nixpkgs.lib.nixosSystem {
