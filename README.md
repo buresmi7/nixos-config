@@ -74,7 +74,11 @@ sudo nixos-rebuild switch --flake .#vbox  # or .#t480
 
 **Update:**
 ```bash
+# Update flake.lock to latest versions from flake.nix
+# This downloads newest commits from specified branches (e.g., nixos-25.05)
 nix flake update
+
+# Apply updates to the system
 sudo nixos-rebuild switch --flake .#vbox --upgrade
 ```
 

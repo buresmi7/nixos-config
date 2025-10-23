@@ -1,11 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Home Manager global settings
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
-  # Home Manager configuration
+  # Home Manager configuration for user
   home.username = "michal";
   home.homeDirectory = "/home/michal";
   
