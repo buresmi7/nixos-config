@@ -13,14 +13,18 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    nur = {
+      url = "github:nix-community/NUR";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, disko, nur, ... }@inputs: {
     nixosConfigurations = {
       # VirtualBox test configuration
       vbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs nur; };
         modules = [
           # Disko for disk management
           disko.nixosModules.disko
@@ -33,7 +37,6 @@
           ./modules/desktop.nix
           ./modules/sound.nix
           ./modules/users.nix
-          ./modules/apps.nix
           
           # Host-specific configuration
           ./hosts/vbox/host.nix
@@ -51,7 +54,7 @@
       # T480 laptop configuration
       t480 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs nur; };
         modules = [
           # Disko for disk management
           disko.nixosModules.disko
@@ -64,7 +67,6 @@
           ./modules/desktop.nix
           ./modules/sound.nix
           ./modules/users.nix
-          ./modules/apps.nix
           
           # Host-specific configuration
           ./hosts/t480/host.nix
