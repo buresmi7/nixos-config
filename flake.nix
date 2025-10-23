@@ -47,7 +47,16 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.michal = import ./modules/home-manager.nix;
-            home-manager.extraSpecialArgs = { inherit nur; };
+            
+            # Add NUR overlay to nixpkgs
+            nixpkgs.overlays = [
+              (final: prev: {
+                nur = import nur {
+                  nurpkgs = prev;
+                  pkgs = prev;
+                };
+              })
+            ];
           }
         ];
       };
@@ -78,7 +87,16 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.michal = import ./modules/home-manager.nix;
-            home-manager.extraSpecialArgs = { inherit nur; };
+            
+            # Add NUR overlay to nixpkgs
+            nixpkgs.overlays = [
+              (final: prev: {
+                nur = import nur {
+                  nurpkgs = prev;
+                  pkgs = prev;
+                };
+              })
+            ];
           }
         ];
       };

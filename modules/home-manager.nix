@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nur, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Home Manager configuration for user
@@ -41,7 +41,7 @@
       isDefault = true;
       
       # Firefox extensions from NUR
-      extensions.packages = with nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         bitwarden
       ];
       
