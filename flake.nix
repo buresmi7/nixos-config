@@ -34,6 +34,7 @@
           ./modules/desktop.nix
           ./modules/sound.nix
           ./modules/users.nix
+          ./modules/apps.nix
           
           # Host-specific configuration
           ./hosts/vbox/host.nix
@@ -41,9 +42,7 @@
           # Home Manager
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.michal = import ./modules/home.nix;
+            home-manager.users.michal = import ./modules/home-manager.nix;
           }
         ];
       };
@@ -64,6 +63,7 @@
           ./modules/desktop.nix
           ./modules/sound.nix
           ./modules/users.nix
+          ./modules/apps.nix
           
           # Host-specific configuration
           ./hosts/t480/host.nix
@@ -71,9 +71,7 @@
           # Home Manager
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.michal = import ./modules/home.nix;
+            home-manager.users.michal = import ./modules/home-manager.nix;
           }
         ];
       };

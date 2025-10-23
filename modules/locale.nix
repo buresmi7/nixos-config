@@ -23,5 +23,5 @@
   console.keyMap = "us";
 
   # This value determines the NixOS release
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }
