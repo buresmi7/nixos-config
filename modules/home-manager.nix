@@ -53,13 +53,7 @@
       ];
       
       # Firefox settings
-      settings = {
-        # Language settings - Czech UI and content
-        "intl.accept_languages" = "cs-CZ, cs, en-US, en";
-        "intl.locale.requested" = "cs-CZ";
-        "intl.locale.matchOS" = false;
-        "general.useragent.locale" = "cs-CZ";
-        
+      settings = {        
         "browser.startup.homepage" = "about:home";
         "browser.search.defaultenginename" = "Google";
         "browser.search.order.1" = "Google";
