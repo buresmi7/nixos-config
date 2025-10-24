@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, addons, ... }:
 
 {
   # Home Manager configuration for user
@@ -41,9 +41,10 @@
       name = "michal";
       isDefault = true;
       
-      # Firefox extensions from NUR (per-profile)
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      # Firefox extensions from rycee's firefox-addons
+      extensions = with addons; [
         bitwarden
+        ublock-origin
       ];
       
       # Firefox settings
@@ -51,10 +52,27 @@
         "browser.startup.homepage" = "about:home";
         "browser.search.defaultenginename" = "Google";
         "browser.search.order.1" = "Google";
+        
         # Privacy settings
         "privacy.donottrackheader.enabled" = true;
         "privacy.trackingprotection.enabled" = true;
         "privacy.trackingprotection.socialtracking.enabled" = true;
+        
+        # Disable telemetry
+        "datareporting.healthreport.uploadEnabled" = false;
+        "datareporting.policy.dataSubmissionEnabled" = false;
+        "toolkit.telemetry.enabled" = false;
+        "toolkit.telemetry.unified" = false;
+        "toolkit.telemetry.archive.enabled" = false;
+        
+        # Disable updates (managed by Nix)
+        "app.update.auto" = false;
+        "app.update.enabled" = false;
+        "extensions.update.enabled" = false;
+        
+        # Other useful settings
+        "browser.shell.checkDefaultBrowser" = false;
+        "browser.aboutConfig.showWarning" = false;
       };
     };
   };
