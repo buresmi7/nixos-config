@@ -36,6 +36,8 @@
   programs.firefox = {
     enable = true;
     
+    package = pkgs.firefox;
+    
     # Add Czech language pack
     languagePacks = [ "cs" ];
     
@@ -52,9 +54,11 @@
       
       # Firefox settings
       settings = {
-        # Language settings - Czech
+        # Language settings - Czech UI and content
         "intl.accept_languages" = "cs-CZ, cs, en-US, en";
         "intl.locale.requested" = "cs-CZ";
+        "intl.locale.matchOS" = false;
+        "general.useragent.locale" = "cs-CZ";
         
         "browser.startup.homepage" = "about:home";
         "browser.search.defaultenginename" = "Google";
