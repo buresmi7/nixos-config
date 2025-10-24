@@ -41,14 +41,8 @@
           # Host-specific configuration
           ./hosts/vbox/host.nix
           
-          # Home Manager
-          home-manager.nixosModules.home-manager
+          # Add NUR overlay to nixpkgs
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.michal = import ./modules/home-manager.nix;
-            
-            # Add NUR overlay to nixpkgs
             nixpkgs.overlays = [
               (final: prev: {
                 nur = import nur {
@@ -57,6 +51,14 @@
                 };
               })
             ];
+          }
+          
+          # Home Manager
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.michal = import ./modules/home-manager.nix;
           }
         ];
       };
@@ -81,14 +83,8 @@
           # Host-specific configuration
           ./hosts/t480/host.nix
           
-          # Home Manager
-          home-manager.nixosModules.home-manager
+          # Add NUR overlay to nixpkgs
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.michal = import ./modules/home-manager.nix;
-            
-            # Add NUR overlay to nixpkgs
             nixpkgs.overlays = [
               (final: prev: {
                 nur = import nur {
@@ -97,6 +93,14 @@
                 };
               })
             ];
+          }
+          
+          # Home Manager
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.michal = import ./modules/home-manager.nix;
           }
         ];
       };
