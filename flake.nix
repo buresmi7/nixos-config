@@ -48,7 +48,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              addons = firefox-addons.packages.${nixpkgs.system};
+              addons = firefox-addons.packages."x86_64-linux";
             };
             home-manager.users.michal = import ./modules/home-manager.nix;
           }
@@ -81,7 +81,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              addons = firefox-addons.packages.${nixpkgs.system};
+              addons = firefox-addons.packages."x86_64-linux";
             };
             home-manager.users.michal = import ./modules/home-manager.nix;
           }
