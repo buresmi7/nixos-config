@@ -4,9 +4,11 @@
   # Enable flakes and new command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Internationalization
+  # Internationalization - Czech locale
   time.timeZone = "Europe/Prague";
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "cs_CZ.UTF-8";
+  
+  # Fallback to English for untranslated strings
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "cs_CZ.UTF-8";
     LC_IDENTIFICATION = "cs_CZ.UTF-8";
@@ -19,7 +21,7 @@
     LC_TIME = "cs_CZ.UTF-8";
   };
 
-  # Console keymap
+  # Console keymap - US keyboard layout
   console.keyMap = "us";
 
   # This value determines the NixOS release
