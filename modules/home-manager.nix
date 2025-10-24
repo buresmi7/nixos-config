@@ -35,15 +35,16 @@
   # Firefox configuration with extensions
   programs.firefox = {
     enable = true;
+    
+    # Firefox extensions from NUR
+    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      bitwarden
+    ];
+    
     profiles.michal = {
       id = 0;
       name = "michal";
       isDefault = true;
-      
-      # Firefox extensions from NUR
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        bitwarden
-      ];
       
       # Firefox settings
       settings = {
